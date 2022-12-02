@@ -40,36 +40,68 @@ const double PI = acos(-1);
 ll int hp = 1e9+7;
 
 
+// Spiral Order means that firstly, first row is printed, then last column is printed,
+// then last row is printed and then first column is printed, then we will come
+// inwards in the similar way.
 
 
+//Details : https://www.youtube.com/watch?v=Xx1tWbb37hY&list=PLfqMhTWNBTe0b2nM6JHVCnAkhQRGiZMSJ&index=26
 void Boom()
 {
     //Let's Move
 
-    int n;
-    cin>>n;
-    int arr[n];
-
-    for(int i=0;i<n;i++)cin>>arr[i];
-
-    int mx=INT_MIN;
+    int n,m;
+    cin>>n>>m;
+    int arr[n][m];
 
     for(int i=0;i<n;i++)
     {
-        for(int j=i;j<n;j++)
+        for(int j=0;j<m;j++)
         {
-            int sum=0;
-            for(int k=i;k<=j;k++)
-            {
-                cerr<<arr[k]<<sp;
-                sum+=arr[k];
-            }
-            cerr<<dl;
-            mx=max(sum,mx);
+            cin>>arr[i][j];
         }
     }
 
-    cout<<mx<<dl;
+    int row_s=0,row_e=n-1,col_s=0,col_e=m-1;
+
+    while(row_s<=row_e && col_s<=col_e)
+    {
+        //Row Start
+        for(int col=col_s;col<=col_e;col++)
+        {
+            cout<<arr[row_s][col]<<sp;
+        }
+        row_s++;
+
+        //Col End
+
+        for(int row=row_s;row<=row_e;row++)
+        {
+            cout<<arr[row][col_e]<<sp;
+        }
+        col_e--;
+
+        //Row End
+
+        for(int col=col_e;col>=col_s;col--)
+        {
+            cout<<arr[row_e][col]<<sp;
+        }
+        row_e--;
+
+        //Col Start
+
+        for(int row=row_e;row>=row_s;row--)
+        {
+            cout<<arr[row][col_s]<<sp;
+        }
+        col_s++;
+    }
+
+    
+
+
+
 
 
 
@@ -81,7 +113,7 @@ int main()
 {
     Boost;
 
-    int t=1;       //cin>>t;
+    int t=1;      // cin>>t;
     for(int i=1;i<=t;i++)
     {
         //cout<<"Case "<<i<<" : ";

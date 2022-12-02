@@ -40,7 +40,26 @@ const double PI = acos(-1);
 ll int hp = 1e9+7;
 
 
+//In this problem we find two cases one is wrapping and not wrapping.
+//Nonwrap sum will be find by the help of kadane's algorithm.
+//The follwing process for the Wrapping case
+//Max subarray sum=Total sum of the array - Sum of non-contributing elements
+//How could we find the non contibuting element?
+//Reverse the sign of all elment than find the max submarry .This max subarry sum is the sum of non contrubuting elements
 
+
+int kadanes(int arr[],int n)
+{
+    int sum=0;
+    int mx=INT_MIN;
+    for(int i=0;i<n;i++)
+    {
+        sum+=arr[i];
+        if(sum<0)sum=0;
+        mx=max(sum,mx);
+    }
+    return mx;
+}
 
 void Boom()
 {
@@ -52,25 +71,24 @@ void Boom()
 
     for(int i=0;i<n;i++)cin>>arr[i];
 
-    int mx=INT_MIN;
+    int wrapsum,nonwrap;
 
+    nonwrap=kadanes(arr,n);
+
+    int totalsum=0;
     for(int i=0;i<n;i++)
     {
-        for(int j=i;j<n;j++)
-        {
-            int sum=0;
-            for(int k=i;k<=j;k++)
-            {
-                cerr<<arr[k]<<sp;
-                sum+=arr[k];
-            }
-            cerr<<dl;
-            mx=max(sum,mx);
-        }
+        totalsum+=arr[i];
+        arr[i]=-arr[i];
     }
 
-    cout<<mx<<dl;
+    wrapsum=totalsum + kadanes(arr,n);  //array er value gular sign change howai eikhane plus kortesi
 
+    cout<<max(wrapsum,nonwrap)<<dl;
+
+
+
+    
 
 
 

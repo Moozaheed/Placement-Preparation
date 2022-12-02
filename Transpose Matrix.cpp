@@ -48,28 +48,32 @@ void Boom()
 
     int n;
     cin>>n;
-    int arr[n];
+    int arr[n][n];
 
-    for(int i=0;i<n;i++)cin>>arr[i];
-
-    int mx=INT_MIN;
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<n;j++)
+        {
+            cin>>arr[i][j];
+        }
+    }
 
     for(int i=0;i<n;i++)
     {
         for(int j=i;j<n;j++)
         {
-            int sum=0;
-            for(int k=i;k<=j;k++)
-            {
-                cerr<<arr[k]<<sp;
-                sum+=arr[k];
-            }
-            cerr<<dl;
-            mx=max(sum,mx);
+            swap(arr[i][j],arr[j][i]);
         }
     }
 
-    cout<<mx<<dl;
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<n;j++)
+        {
+            cout<<arr[i][j]<<sp;
+        }
+        cout<<dl;
+    }
 
 
 

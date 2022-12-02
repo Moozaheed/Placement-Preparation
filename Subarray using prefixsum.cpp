@@ -52,24 +52,29 @@ void Boom()
 
     for(int i=0;i<n;i++)cin>>arr[i];
 
-    int mx=INT_MIN;
+    int pre[n+1];
+    pre[0]=0;
 
-    for(int i=0;i<n;i++)
+    for(int i=1;i<=n;i++)
     {
-        for(int j=i;j<n;j++)
-        {
-            int sum=0;
-            for(int k=i;k<=j;k++)
-            {
-                cerr<<arr[k]<<sp;
-                sum+=arr[k];
-            }
-            cerr<<dl;
-            mx=max(sum,mx);
-        }
+        pre[i]=pre[i-1]+arr[i-1];
     }
 
+    int mx=INT_MIN;
+
+    for(int i=1;i<=n;i++)
+    {
+        int sum=0;
+        for(int j=1;j<=i;j++)
+        {
+            //cerr<<j<<sp<<i<<dl;
+            sum=pre[i]-pre[j-1];
+            mx=max(sum,mx);
+        }
+        //cerr<<dl;
+    }
     cout<<mx<<dl;
+
 
 
 
