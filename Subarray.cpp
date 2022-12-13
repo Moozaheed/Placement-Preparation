@@ -61,10 +61,10 @@ void Boom()
             int sum=0;
             for(int k=i;k<=j;k++)
             {
-                cerr<<arr[k]<<sp;
+                //cerr<<arr[k]<<sp;
                 sum+=arr[k];
             }
-            cerr<<dl;
+            //cerr<<dl;
             mx=max(sum,mx);
         }
     }

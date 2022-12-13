@@ -58,7 +58,7 @@ void Boom()
     for(int i=0;i<n;i++)
     {
         sum+=arr[i];
-        if(sum<0)sum=0;
+        if(sum<0)sum=0; //Je value sum korle negative hoi jacche segula avoid kortesi
         mx=max(sum,mx);
     }
 

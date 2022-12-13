@@ -40,6 +40,7 @@ const double PI = acos(-1);
 ll int hp = 1e9+7;
 
 
+//Just swap the value of upper diagonal with their row and col. 
 
 
 void Boom()
