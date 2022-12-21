@@ -43,14 +43,33 @@ ll int hp = 1e9+7;
 //Time Complexcity O(n)
 //Check if there exists two elements in an array such that their sum is equal to given k
 
-bool pairsum(int arr[],int n,int k)
-{
 
+vector<int> twoSum(vector<int>& nums, int target) 
+{
+    //Leetcode: Two Sum
+    map<int, int> m;
+    for (int i = 0; i < (int)nums.size(); ++i) 
+    {
+        if (m.find(target - nums[i]) == m.end()) 
+        {
+            m[nums[i]] = i;
+        } 
+        else 
+        {
+            return {i, m[target - nums[i]]};
+        }
+    }
+    
+    return {-1, -1};
+}
+
+
+bool twoptr(int arr[],int n,int k)
+{
     sort(arr,arr+n);
 
     int low=0;
     int high=n-1;
-
     while(low<high)
     {
         if(arr[low]+arr[high]==k)
@@ -62,7 +81,6 @@ bool pairsum(int arr[],int n,int k)
         else low++;
 
     }
-
     return false;
 }
 
