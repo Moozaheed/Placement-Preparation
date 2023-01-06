@@ -1,9 +1,3 @@
-// Properties of Binary Tree 
-//  1.Maximum node at level L= pow(2,L).
-//  2.Maximum nodes in a tree of height H is pow(2,H)-1.
-//  3.For N nodes,minimum possible height ot minimum number of levels are log2(N+1).
-//  4.A binary tree with L leaves has at least  log2(N+1)+1 number of levels.
-
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -22,7 +16,7 @@ struct Node{
 
 };
 
-
+//Null insert er main karon hocche level ta bujte paraa
 
 void printlevelorder(Node* root)
 {
@@ -42,8 +36,7 @@ void printlevelorder(Node* root)
             if(node->left)q.push(node->left);
             if(node->right)q.push(node->right);
         }
-        else if(!q.empty())
-        q.push(NULL);
+        else if(!q.empty()) q.push(NULL);
     }
 
 }
@@ -56,8 +49,8 @@ int main()
     root->left =new Node(2);
     root->right=new Node(3);
 
-   root->left->left=new Node(4);
-   root->left->right=new Node(5);
+    root->left->left=new Node(4);
+    root->left->right=new Node(5);
 
 printlevelorder(root);
 

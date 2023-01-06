@@ -44,7 +44,7 @@ int diameter(Node *root)
 }
 
 
-//Less Complexciti
+//Less Complexcity O(n)
 
 int dia(Node* root,int* height)
 {
@@ -75,7 +75,6 @@ int main()
     root->left->right=new Node(5);
 
     cout<<diameter(root)<<endl;
-
 
     int height=0;
     cout<<dia(root,&height);
