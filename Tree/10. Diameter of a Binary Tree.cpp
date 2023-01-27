@@ -29,6 +29,7 @@ int height(Node* root)
 //Number of nodes in the longest path between any 2 leaves
 //akta node er left diameter and tar height ta dekhbo abar left diameter and height tao dekhbo tader modde max ta return korbo
 //O(n*n)
+
 int diameter(Node *root)
 {
     if(root==NULL)return 0;
