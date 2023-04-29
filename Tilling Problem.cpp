@@ -1,3 +1,7 @@
+//https://www.youtube.com/watch?v=VQVeAQVs1d8&list=PLfqMhTWNBTe0b2nM6JHVCnAkhQRGiZMSJ&index=42&ab_channel=ApnaCollege
+// Given a "2 x n" board and tiles of size "2 x 1", count the number of ways to tile the given board using these tiles
+
+
 //Bismillahir Rahmanir Rahim
 #include<bits/stdc++.h>
 #define ull unsigned long long
@@ -39,43 +43,21 @@ using namespace std;
 const double PI = acos(-1);
 ll int hp = 1e9+7;
 
-// In this problem given rows and col are sorted
-//https://leetcode.com/problems/search-a-2d-matrix/description/?envType=study-plan&id=binary-search-i
+
+int tillingways(int n)
+{
+    if(n==0)return 0;
+    if(n==1)return 1;
+
+    return tillingways(n-1)+tillingways(n-2);
+}
 
 void Boom()
 {
     //Let's Move
 
-    int n,m;
-    cin>>n>>m;
-    int arr[n][m];
-
-    for(int i=0;i<n;i++)
-    {
-        for(int j=0;j<m;j++)
-        {
-            cin>>arr[i][j];
-        }
-    }
-
-    int x;
-    cin>>x;
-
-    int r=0,c=m-1;
-    bool ok=false;
-    while(r<n && c>=0)
-    {
-        if(arr[r][c]==x)
-        {
-            ok=true;
-            break;
-        }
-        else if(arr[r][c]>x)c--;
-        else r++;
-    }
-
-    if(ok)cout<<"Found"<<endl;
-    else cout<<"Not Found"<<endl;
+    cout<<tillingways(4);
+    
 
 
 

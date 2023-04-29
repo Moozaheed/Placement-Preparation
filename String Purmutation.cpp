@@ -39,43 +39,28 @@ using namespace std;
 const double PI = acos(-1);
 ll int hp = 1e9+7;
 
-// In this problem given rows and col are sorted
-//https://leetcode.com/problems/search-a-2d-matrix/description/?envType=study-plan&id=binary-search-i
+
+void premutation(string s, string ans)
+{
+    if(s.size()==0)
+    {
+        cout<<ans<<dl;
+        return;
+    }
+    for(int i=0;i<s.size();i++)
+    {
+        char ch=s[i];
+        string ros=s.substr(0,i)+s.substr(i+1);
+
+        premutation(ros,ans+ch); 
+    }
+}
 
 void Boom()
 {
     //Let's Move
 
-    int n,m;
-    cin>>n>>m;
-    int arr[n][m];
-
-    for(int i=0;i<n;i++)
-    {
-        for(int j=0;j<m;j++)
-        {
-            cin>>arr[i][j];
-        }
-    }
-
-    int x;
-    cin>>x;
-
-    int r=0,c=m-1;
-    bool ok=false;
-    while(r<n && c>=0)
-    {
-        if(arr[r][c]==x)
-        {
-            ok=true;
-            break;
-        }
-        else if(arr[r][c]>x)c--;
-        else r++;
-    }
-
-    if(ok)cout<<"Found"<<endl;
-    else cout<<"Not Found"<<endl;
+    premutation("ABC","");
 
 
 
